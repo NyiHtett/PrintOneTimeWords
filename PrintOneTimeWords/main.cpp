@@ -1,14 +1,26 @@
-//
-//  main.cpp
-//  PrintOneTimeWords
-//
-//  Created by Nyi Htet on 3/12/23.
-//
-
 #include <iostream>
-
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+using namespace std;
+//print all characters that appear once
+int main() {
+    string str;
+    cin >> str;
+    
+    for(int i = 0; i < str.length(); i++){
+        bool found = false;
+        int position = 0;
+        string target = str.substr(i,1);
+        while(!found && position < str.length()){
+            string ch = str.substr(position,1);
+            if(ch == target && position != i){
+                found = true;
+            }
+            else{
+                position++;
+            }
+        }
+        if(!found){
+                cout << target << endl;
+            }
+    }
     return 0;
 }
